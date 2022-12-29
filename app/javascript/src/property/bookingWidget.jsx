@@ -1,12 +1,16 @@
+// bookingWidget.jsx
 import React from 'react';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
+
 import 'react-dates/lib/css/_datepicker.css';
+
 
 class BookingWidget extends React.Component {
   state = {
     authenticated: false,
+    existingBookings: [],
     startDate: null,
     endDate: null,
     focusedInput: null,
@@ -22,6 +26,7 @@ class BookingWidget extends React.Component {
           authenticated: data.authenticated,
         })
       })
+      this.getPropertyBookings();
   }
 
   getPropertyBookings = () => {
@@ -37,7 +42,9 @@ class BookingWidget extends React.Component {
 
   submitBooking = (e) => {
     if (e) { e.preventDefault(); }
-    const { startDate, endDate } = this.state;
+    
+    const { startDate, endDate} = this.state;
+    
     console.log(startDate.format('MMM DD YYYY'), endDate.format('MMM DD YYYY'));
 
     fetch(`/api/bookings`, safeCredentials({
@@ -65,8 +72,8 @@ class BookingWidget extends React.Component {
     }))
       .then(handleErrors)
       .then(response => {
-        const stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
-
+        const stripe = Stripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
+  
         stripe.redirectToCheckout({
           // Make the id field from the Checkout Session creation API response
           // available to this file, so you can provide it as parameter here
@@ -83,12 +90,11 @@ class BookingWidget extends React.Component {
       })
   }
 
-
   onDatesChange = ({ startDate, endDate }) => this.setState({ startDate, endDate })
 
   onFocusChange = (focusedInput) => this.setState({ focusedInput })
 
-  // isDayBlocked = day => this.state.existingBookings.filter(b => day.isBetween(b.start_date, b.end_date, 'day', '[)')).length > 0
+  isDayBlocked = day => this.state.existingBookings.filter(b => day.isBetween(b.start_date, b.end_date, 'day', '[)')).length > 0
 
   render () {
     const { authenticated, startDate, endDate, focusedInput } = this.state;
@@ -101,18 +107,21 @@ class BookingWidget extends React.Component {
     };
 
     const { price_per_night } = this.props;
-    
+
     let days;
-  if (startDate && endDate) {
-    days = endDate.diff(startDate, 'days');
-  }
-  return (
-    <div className="border p-4 mb-4">
-      <form onSubmit={this.submitBooking}>
-        <h5>${price_per_night} <small>per night</small></h5>
-        <hr/>
-        <div style={{ marginBottom: focusedInput ? '400px': '2rem' }}>
-          <DateRangePicker
+    if (startDate && endDate) {
+        days = endDate.diff(startDate, 'days');
+    }
+
+    return (
+      <div className="border p-4 mb-4">
+        <form onSubmit={this.submitBooking}>
+          <h5>${price_per_night} <small>per night</small></h5>
+          <hr/>
+
+          <div style={{ marginBottom: focusedInput ? '400px': '2rem' }}>
+            
+            <DateRangePicker
             startDate={startDate} // momentPropTypes.momentObj or null,
             startDateId="start_date" // PropTypes.string.isRequired,
             endDate={endDate} // momentPropTypes.momentObj or null,
@@ -121,19 +130,22 @@ class BookingWidget extends React.Component {
             focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
             onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
             isDayBlocked={this.isDayBlocked} // block already booked dates
-            numberOfMonths={1}
-          />
-        </div>
-        {days && (
-          <div className="d-flex justify-content-between">
-            <p>Total</p>
-            <p>${(price_per_night * days).toLocaleString()}</p>
-          </div>
-        )}
-        <button type="submit" className="btn btn-large btn-danger btn-block">Book</button>
-      </form>
-    </div>
-  )
+            numberOfMonths={1} />
+
+         </div>
+         
+            {days && (
+                <div className="d-flex justify-content-between">
+                <p>Total</p>
+                <p>${(price_per_night * days).toLocaleString()}</p>
+                </div>
+            )}
+
+          <button type="submit" className="btn btn-large btn-danger btn-block">Book</button>
+        </form>
+      </div>
+    )
+  }
 }
-}
+
 export default BookingWidget;

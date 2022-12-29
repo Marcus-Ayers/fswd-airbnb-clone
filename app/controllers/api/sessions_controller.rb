@@ -32,7 +32,7 @@ module Api
       token = cookies.signed[:airbnb_session_token]
       session = Session.find_by(token: token)
 
-      if session and session.destroy
+      if session&.destroy
         render json: { success: true }, status: :ok
       end
     end

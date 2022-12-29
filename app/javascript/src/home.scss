@@ -1,7 +1,196 @@
+body {
+  font-size: 16px;
+  line-height: 1.66667;
+  color: #222;
+}
+
+/* Container */
+
+.container {
+  max-width: 1760px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+/* ----------------------- */
+
+
+/* ---- Home ---- */
+/* Property aspect ratio */
+
 .property {
   .property-image {
     padding-top: calc(2 / 3 * 100%); /* aspect ratio 3:2 */
     background-size: cover;
     background-position: center;
   }
+}
+
+/* ----------------------- */
+
+/* ---- Layout ---- */
+/* Navbar */
+
+#navbar {
+  height: 80px;
+  border-bottom: 1px solid #ddd;
+  z-index: 1;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+}
+
+#navbar li {
+  font-size: 16px;
+}
+
+.nav-link:hover {
+  background-color: #F2F2F2;
+  border-radius: 5px;
+}
+
+.btn-hosting-menu {
+  position: relative;
+}
+
+.hosting-menu {
+  position: absolute;
+  font-size: 14px;
+  line-height: 1.375;
+  left: 0;
+  top: 60px;
+  width: 260px;
+  max-height: calc(100vh - 32px);
+  margin: 0;
+  padding: 16px 0;
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, .04);
+  border-radius: 16px;
+  text-align: left;
+  z-index: 90;
+  overflow-y: auto;
+}
+
+.hosting-menu li {
+  padding: 10px 24px;
+}
+
+.hosting-menu li a {
+  color: #000;
+}
+
+.hosting-menu li:hover {
+  background-color: #F2F2F2;
+}
+
+.divider {
+  color: #ddd;
+  background-color: #ddd;
+  height: 1px;
+  margin: 8px 0;
+}
+
+// .btn-my-bookings {
+//   display: inline-block;
+//   line-height: 1.5;
+// }
+
+
+.btn-hosting-menu:hover {
+  color: #DC3545!important;
+}
+// .btn-my-bookings:hover {
+//   background-color: rgba(174, 174, 174, 0.179)!important;
+// }
+
+.btn-my-bookings:focus,
+.btn-hosting-menu:focus {
+  box-shadow: none!important;
+}
+
+/* Content (children) */
+
+.content {
+  min-height: calc(100vh - 70px);
+}
+
+/* Footer */
+
+footer {
+  background-color: #f7f7f7;
+}
+
+/* Footer nav */
+.footerColumn_title {
+  font-size: 12px;
+}
+
+.footerColumn a {
+  font-size: 14px;
+}
+
+.footerColumn a:hover {
+  text-decoration: underline;
+}
+
+.footerColumn li {
+  font-size: 14px;
+  line-height: 1.28571;
+}
+
+/* Footer bar */
+.footerBar {
+  font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+  .footerColumn_wrap {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+@media (min-width: 768px) {
+  .footerColumn li {
+    flex-basis: 33.3333%;
+  }
+}
+
+/* ----------------------- */
+.user-logout {
+  margin-left: 20px!important;
+  margin-top: 10px
+}
+.user {
+  margin-left: 20px!important;
+  color: black!important;
+}
+
+.your-bookings {
+  margin-left: 0px!important;
+  padding: 0px!important;
+  text-decoration: underline!important;
+
 }

@@ -1,7 +1,6 @@
+// signupWidget.jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
-
 class SignupWidget extends React.Component {
   state = {
     email: '',
@@ -59,7 +58,7 @@ class SignupWidget extends React.Component {
           password: this.state.password,
         }
       })
-    }))
+    })) 
       .then(handleErrors)
       .then(data => {
         if (data.success) {
@@ -76,7 +75,7 @@ class SignupWidget extends React.Component {
   }
 
   render () {
-    const { email, password, username, error } = this.state;
+    const { email, password, username } = this.state;
     return (
       <React.Fragment>
         <form onSubmit={this.signup}>

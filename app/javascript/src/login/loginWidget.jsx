@@ -1,7 +1,6 @@
+// loginWidget.jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
-
 class LoginWidget extends React.Component {
   state = {
     email: '',
@@ -15,7 +14,7 @@ class LoginWidget extends React.Component {
     })
   }
 
-  login = (e) => {
+  logIn = (e) => {
     if (e) { e.preventDefault(); }
     this.setState({
       error: '',
@@ -49,7 +48,7 @@ class LoginWidget extends React.Component {
     const { email, password, error } = this.state;
     return (
       <React.Fragment>
-        <form onSubmit={this.login}>
+        <form onSubmit={this.logIn}>
           <input name="email" type="text" className="form-control form-control-lg mb-3" placeholder="Email" value={email} onChange={this.handleChange} required />
           <input name="password" type="password" className="form-control form-control-lg mb-3" placeholder="Password" value={password} onChange={this.handleChange} required />
           <button type="submit" className="btn btn-danger btn-block btn-lg">Log in</button>

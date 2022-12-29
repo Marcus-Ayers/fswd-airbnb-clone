@@ -11,15 +11,16 @@ gem 'puma', '>= 5.6.4'
 gem 'sass-rails', '~> 6.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
-
-gem 'kaminari'
-
-gem 'stripe'
-
 # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '~> 4.2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
+
+# Use kaminari for activerecord pagination
+gem 'kaminari'
+
+# Use Stripe for receiving payments
+gem 'stripe'
 
 # Use jquery as the JavaScript library
 # gem 'jquery-rails', '~> 4.4'
@@ -38,6 +39,8 @@ gem 'bcrypt', '~> 3.1'
 # gem 'image_processing', '~> 1.2'
 # AWS S3
 gem 'aws-sdk-s3', '~> 1.114'
+gem 'aws-sdk', '~> 3.0'
+
 # Webrick
 gem 'webrick', '~> 1.7'
 # Mail gem
