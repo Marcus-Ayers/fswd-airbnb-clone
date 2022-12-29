@@ -21,6 +21,8 @@ gem 'kaminari'
 
 # Use Stripe for receiving payments
 gem 'stripe'
+gem 'rails_admin', '~> 2.0'
+
 
 # Use jquery as the JavaScript library
 # gem 'jquery-rails', '~> 4.4'
