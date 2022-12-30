@@ -69,6 +69,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.1'
   gem 'rubocop', '~> 1.36'
   gem 'rubocop-rspec', '2.12'
+    gem 'sqlite3', '~> 1.4'
+
 end
 
 group :development do
@@ -80,7 +82,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.1'
 
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :production do
