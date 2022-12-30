@@ -1593,7 +1593,6 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (~> 1.9)
   aws-sdk (~> 3.0)
-  aws-sdk-s3 (~> 1.114)
   bcrypt (~> 3.1)
   bootsnap (>= 1.13)
   byebug (~> 11.1.3)
