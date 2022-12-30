@@ -75,14 +75,10 @@ class BookingWidget extends React.Component {
         const stripe = Stripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
   
         stripe.redirectToCheckout({
-          // Make the id field from the Checkout Session creation API response
-          // available to this file, so you can provide it as parameter here
-          // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+         
           sessionId: response.charge.checkout_session_id,
         }).then((result) => {
-          // If `redirectToCheckout` fails due to a browser or network
-          // error, display the localized error message to your customer
-          // using `result.error.message`.
+        
         });
       })
       .catch(error => {
@@ -122,14 +118,14 @@ class BookingWidget extends React.Component {
           <div style={{ marginBottom: focusedInput ? '400px': '2rem' }}>
             
             <DateRangePicker
-            startDate={startDate} // momentPropTypes.momentObj or null,
-            startDateId="start_date" // PropTypes.string.isRequired,
-            endDate={endDate} // momentPropTypes.momentObj or null,
-            endDateId="end_date" // PropTypes.string.isRequired,
+            startDate={startDate}
+            startDateId="start_date"
+            endDate={endDate}
+            endDateId="end_date"
             onDatesChange={this.onDatesChange}
-            focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-            onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
-            isDayBlocked={this.isDayBlocked} // block already booked dates
+            focusedInput={focusedInput}
+            onFocusChange={this.onFocusChange} 
+            isDayBlocked={this.isDayBlocked} 
             numberOfMonths={1} />
 
          </div>

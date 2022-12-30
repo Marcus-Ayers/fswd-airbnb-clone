@@ -66,7 +66,7 @@ class Home extends React.Component {
             })}
           </div>
           {loading && <p>loading...</p>}
-          {(loading || next_page === null) || // this first argument should be both false in both of the parameters so that the load more div button will be appended if either of them is true then the load more button will not appended.
+          {(loading || next_page === null) ||
             <div className="text-center">
               <button
                 className="btn btn-light mb-4"

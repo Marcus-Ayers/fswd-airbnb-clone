@@ -42,7 +42,8 @@ class Bookings extends React.Component {
         }))
         .then(handleErrors)
         .then(response => {
-            const stripe = Stripe("pk_test_51MKMhAFdvcptQybAKpRaAY0ju6SkiYsOzgq1YpitbP3QB4sYSOly87zSxmfgNjvxftlqfb0P9NlZtB29l0rFtuLk00O1nyw9Mt");
+            const stripe = Stripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
+
             stripe.redirectToCheckout({
                 sessionId: response.charge.checkout_session_id,
             }).then(result => {
@@ -92,7 +93,6 @@ class Bookings extends React.Component {
                                                     <p className='mb-1'><b>${this.totalPrice(booking.start_date, booking.end_date, booking.property.price_per_night)}</b></p>
                                                 </div>
 
-                                                {/* If user already paid for this booking show 'Paid', if not show 'pending' and let him/her proceed to the payment page */}
                                                 {(booking.is_paid) ?
 
                                                 <div className='d-flex justify-content-between'>
