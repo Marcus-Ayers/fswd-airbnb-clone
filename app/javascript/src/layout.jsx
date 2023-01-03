@@ -93,7 +93,7 @@ class Layout extends React.Component {
                 </li>
 
                   <li><a href={`/${username}/add-property`}>Add a new listing</a></li>
-                  <li><a href={`/${username}/listings`}>Listings</a></li>
+                  <li><a href={`/${username}/listings`}>My Listings</a></li>
                   <li><a href={`/${username}/reservations`}>Reservations</a></li>
                   <button type='submit' className='btn btn-danger user-logout ' onClick={this.logOut}>Sign Out</button>
 

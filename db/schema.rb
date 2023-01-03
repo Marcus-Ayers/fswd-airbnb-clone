@@ -101,5 +101,6 @@ ActiveRecord::Schema.define(version: 2022_11_19_162833) do
   add_foreign_key "bookings", "properties"
   add_foreign_key "bookings", "users"
   add_foreign_key "charges", "bookings"
+  add_foreign_key "properties", "users"
   add_foreign_key "sessions", "users"
 end

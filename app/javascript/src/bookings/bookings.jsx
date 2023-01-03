@@ -32,27 +32,26 @@ class Bookings extends React.Component {
         })
     }
 
-    initiateStripeCheckout = e => {
+    initiateStripeCheckout = (e) => {
         e.preventDefault();
-        let bookingElement = e.target.closest('.bookings-wrap');
-        let bookingIdentification = bookingElement.getAttribute('id');
-
-        return fetch(`/api/charges?booking_id=${bookingIdentification}&cancel_url=${window.location.pathname}`, safeCredentials({
-            method: 'POST',
+        let bookingEl = e.target.closest(".bookings-wrap")
+        let bookingId = bookingEl.getAttribute('id')
+    
+        return fetch(`/api/charges?booking_id=${bookingId}&cancel_url=${window.location.pathname}`, safeCredentials({
+          method: 'POST',
         }))
-        .then(handleErrors)
-        .then(response => {
+          .then(handleErrors)
+          .then(response => {
             const stripe = Stripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
-
             stripe.redirectToCheckout({
-                sessionId: response.charge.checkout_session_id,
-            }).then(result => {
+              sessionId: response.charge.checkout_session_id,
+            }).then((result) => {
             });
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             console.log(error);
-        })
-    }
+          })
+      }
 
     totalPrice = (startDate, endDate, nightlyRate) => {
         let nights = new Date(endDate) - new Date(startDate);

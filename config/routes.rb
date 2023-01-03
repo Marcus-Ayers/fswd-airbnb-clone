@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     get '/properties/:id'                      => 'properties#show'
     get '/users/:username/properties'          => 'properties#index_by_user'
     patch '/properties/:id'                    => 'properties#update'
-    delete '/properties/:id'                   => 'properties#destroy'
+    # delete '/properties/:id'                   => 'properties#destroy'
 
     resources :bookings, only: [:create, :show]
 
