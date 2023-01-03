@@ -87,7 +87,9 @@ class BookingWidget extends React.Component {
   }
 
 
+
   
+
   onDatesChange = ({ startDate, endDate }) => this.setState({ startDate, endDate })
 
   onFocusChange = (focusedInput) => this.setState({ focusedInput })
