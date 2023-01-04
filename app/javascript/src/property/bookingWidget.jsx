@@ -88,7 +88,6 @@ class BookingWidget extends React.Component {
 
 
 
-  
 
   onDatesChange = ({ startDate, endDate }) => this.setState({ startDate, endDate })
 
