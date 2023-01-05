@@ -1,11 +1,5 @@
-// layout.js
 import React from 'react';
 import { safeCredentials, handleErrors } from '@utils/fetchHelper';
-
-// FontAwesome icons
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faAirbnb, faTwitter, faInstagram, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
-
 // stylesheet
 import './home.scss';
 
@@ -72,7 +66,6 @@ class Layout extends React.Component {
         
         <nav className='navbar navbar-expand d-flex justify-content-between' id="navbar">
           <a className="navbar-brand text-danger" href="/">
-            {/* <FontAwesomeIcon icon={faAirbnb} size='lg'/> */}
             <b className='pl-2'>airbnb</b>
           </a>
           <div>
@@ -108,7 +101,6 @@ class Layout extends React.Component {
         :
         <nav className='navbar navbar-expand d-flex justify-content-between' id='navbar'>
           <a className="navbar-brand text-danger" href="/">
-            {/* <FontAwesomeIcon icon={faAirbnb} size="lg"/> */}
             <b className="pl-2">airbnb</b>
           </a>
           <a className='btn btn-outline-danger btn-login' href='/login'>Log in</a>
