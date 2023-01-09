@@ -55,7 +55,7 @@ class Home extends React.Component {
               return (
                 <div key={property.id} className="col-6 col-lg-4 mb-4 property">
                   <a href={`/property/${property.id}`} className="text-body text-decoration-none">
-                    <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${property.image})` }} />
+                    <div className="property-image mb-1 rounded" style={{ backgroundImage: `url(${escape(property.image)})` }} />
                     <p className="text-uppercase mb-0 text-secondary"><small><b>{property.city}</b></small></p>
                     <p className="text-uppercase mb-0"><small><b>{property.country}</b></small></p>
                     <h6 className="mb-0">{property.title}</h6>

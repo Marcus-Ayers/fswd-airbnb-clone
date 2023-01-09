@@ -80,7 +80,7 @@ class Reservations extends React.Component {
                             <div key={booking.id} id={booking.id} className='reservations-wrap p-4 mb-3'>
                                 <div className='row no-gutters d-flex justify-content-between align-items-center text-center'>
                                     <div className='col-2'>
-                                        <div className='property-image rounded' style={{backgroundImage: `url(${booking.property.image})`}}></div>
+                                        <div className='property-image rounded' style={{backgroundImage: `url(${escape(booking.property.image)})`}}></div>
                                     </div>
                                     <div className='col-2'>
                                         <p className='mb-2'>{booking.property.title}</p>

@@ -75,7 +75,7 @@ class Bookings extends React.Component {
                                 <div key={booking.id} id={booking.id} className='bookings-wrap p-4 mb-3'>
                                     <div className='row d-flex'>
                                         <div className='col-3'>
-                                            <div className="property-image" style={{ backgroundImage: `url(${booking.property.image})` }} />
+                                            <div className="property-image" style={{ backgroundImage: `url(${escape(booking.property.image)})` }} />
                                         </div>
                                         <div className='col-5'>
                                             <div className='row d-flex flex-column px-3'>

@@ -73,7 +73,7 @@ class Listings extends React.Component {
              <div key={property.id} id={property.id} className="listings-wrap p-4 mb-3">
                  <div className="row d-flex">
                         <div className="col-4">
-                            <div className="property-image rounded" style={{ backgroundImage: `url(${property.image})` }} />
+                            <div className="property-image rounded" style={{ backgroundImage: `url(${escape(property.image)})` }} />
                         </div>
                         <div className="col-8">
                             <div className="row d-flex flex-column px-3">

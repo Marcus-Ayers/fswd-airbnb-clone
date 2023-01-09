@@ -49,7 +49,7 @@ class Property extends React.Component {
 
         return(
             <Layout>
-                <div className="property-image mb-3" style={{backgroundImage: `url(${image})` }} />
+                <div className="property-image mb-3" style={{backgroundImage: `url(${escape(image)})` }} />
                 <div className="container">
                     <div className="row">
                         <div className="info col-12 col-lg-7">
